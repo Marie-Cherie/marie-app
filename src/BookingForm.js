@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchData } from './api';
+import { fetchAPI, submitAPI } from './substitute-api'; 
 
 const BookingForm = ({ updateTimes, submitForm }) => {
   const [date, setDate] = useState('');
@@ -16,8 +16,8 @@ const BookingForm = ({ updateTimes, submitForm }) => {
     try {
       const today = new Date();
       const formattedDate = today.toISOString().split('T')[0];
-      const response = await fetchData(formattedDate);
-      setTimes(response.availableTimes);
+      const response = await fetchAPI(formattedDate); // Use fetchAPI instead of fetchData
+      setTimes(response);
     } catch (error) {
       console.error('Error fetching available times:', error);
     }
@@ -27,8 +27,8 @@ const BookingForm = ({ updateTimes, submitForm }) => {
     const selectedDate = event.target.value;
     setDate(selectedDate);
     try {
-      const response = await fetchData(selectedDate);
-      setTimes(response.availableTimes);
+      const response = await fetchAPI(selectedDate); // Use fetchAPI instead of fetchData
+      setTimes(response);
       updateTimes(selectedDate);
     } catch (error) {
       console.error('Error fetching available times:', error);
@@ -48,7 +48,7 @@ const BookingForm = ({ updateTimes, submitForm }) => {
     validateForm();
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const formData = {
       date,
@@ -56,7 +56,10 @@ const BookingForm = ({ updateTimes, submitForm }) => {
       guests,
       occasion,
     };
-    submitForm(formData);
+    const success = await submitAPI(formData); // Use submitAPI instead of the original submit function
+    if (success) {
+      submitForm(formData);
+    }
   };
 
   const validateForm = () => {

@@ -12,8 +12,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   padding: 5px;
-  background-color: #f4ce14; /* Updated color */
-  color: #000; /* Updated text color */
+  background-color: #f4ce14; 
+  color: #000; 
   border-radius: 10px;
 }
 
@@ -65,7 +65,7 @@ section {
 
 .hero {
   position: relative;
-  background: url('cocktail.jpg') center/cover no-repeat;
+  background: url('Cocktail.jpg') center/cover no-repeat;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
