@@ -1,16 +1,14 @@
 // BookingPage.js
 import React, { useState } from 'react';
 import BookingForm from './BookingForm';
+import { submitAPI } from './substitute-api'; // Import the submitAPI function
 
 const BookingPage = ({ availableTimes, dispatch }) => {
   const [bookingResult, setBookingResult] = useState(null);
 
   const submitForm = async (formData) => {
-    // Assume you have some logic to submit the form data
-    // and handle the booking result
     try {
       // Logic to submit the form data and get the result
-      // For example, you can call an API function here
       const result = await submitAPI(formData);
       setBookingResult(result);
     } catch (error) {

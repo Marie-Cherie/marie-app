@@ -6,6 +6,7 @@ import MenuPage from './MenuPage';
 import BookingPage from './BookingPage';
 import AboutPage from './AboutPage';
 import ConfirmedBooking from './ConfirmedBooking';
+import { fetchAPI, submitAPI } from './substitute-api'; // Import the API functions
 
 // Reducer function to manage the state of available times
 const reducer = (state, action) => {
@@ -60,6 +61,7 @@ function Main() {
               availableTimes={availableTimes}
               dispatch={dispatch}
               submitForm={submitForm}
+              fetchAPI={fetchAPI} // Pass the fetchAPI function as a prop
             />
           }
         />
