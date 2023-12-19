@@ -11,7 +11,7 @@ body {
 .navbar {
   text-align: center;
   text-transform: uppercase;
-  padding: 5px;
+  padding: 10px;
   background-color: #f4ce14;
   color: #000;
   border-radius: 10px;
@@ -19,7 +19,6 @@ body {
   z-index: 2;
 }
 
-/* Add the following styles for the box behind the navbar */
 .navbar::before {
   content: "";
   position: absolute;
@@ -33,9 +32,10 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 p {
@@ -45,43 +45,32 @@ p {
 
 header > img {
   display: block;
-  width: 100%; /* Use width instead of height for responsiveness */
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto; /* Center the image */
+  margin: 0 auto;
 }
 
 nav ul {
   list-style: none;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 nav li {
   display: inline-block;
+  margin: 0 15px;
 }
 
 nav a {
   color: #f4ce14;
   text-decoration: none;
-  margin: 0 15px;
   border-radius: 5px;
+  padding: 8px;
   transition: background-color 0.3s;
 }
 
 nav a:hover {
-  background-color: #495E57;
-}
-
-button.book-table-button {
-  background-color: #f4ce14;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button.book-table-button:hover {
   background-color: #495E57;
 }
 
@@ -92,21 +81,13 @@ section {
 }
 
 .hero {
-  position: relative;
+  width: 100%;
   background: url('Cocktail.jpg') center/cover no-repeat;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
   z-index: 0;
   overflow: hidden;
-}
-
-.hero img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
 }
 
 .hero article {
@@ -117,6 +98,19 @@ section {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
+}
+
+.hero article > * {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .hero h1,
@@ -143,23 +137,38 @@ article img {
   margin-bottom: 10px;
 }
 
-/* Style the form under "Book a table" */
-article form {
+.article-book-table form {
   display: grid;
   gap: 10px;
 }
 
-article label {
+.article-book-table label {
   display: block;
   font-weight: bold;
 }
 
-article input,
-article select {
+.article-book-table input,
+.article-book-table select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.article-summer-menu button {
+  display: none;
+}
+
+.article-opening-hours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-opening-hours p {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
 }
 
 footer {
@@ -197,22 +206,21 @@ footer img {
   max-width: 100%;
 }
 
-/* Responsive Styles */
-
-/* Small screens */
 @media screen and (max-width: 600px) {
   nav ul {
     display: none;
   }
 
-  nav a {
-    margin: 0;
+  nav li {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
   }
 }
 
-/* Medium screens and larger */
 @media screen and (min-width: 601px) {
   nav ul {
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 }

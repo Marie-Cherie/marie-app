@@ -1,110 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Little Lemon Website" />
-    <meta
-      name="og:title"
-      content="Little Lemon Restaurant"
-    />
-    <meta
-      name="og:description"
-      content="This is the website of Little Lemon Restaurant"
-    />
-    <meta name="og:image" content="Asset16@4x.png" />
-    <title>Little Lemon Restaurant</title>
-    <link rel="stylesheet" href="App.css" />
-  </head>
-  <body>
-    <header>
-      <img src="logo3.png" alt="Little Lemon Logo" />
-      <br />
-      <nav className="navbar">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="book.html">Book</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section className="hero">
-        <article>
-          <h1>Free cocktail with every main dish</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-        </article>
-      </section>
-      <section>
-        <article>
-          <h2>Our Summer Menu</h2>
-          <div>
-            <img src="pasta.jpg" alt="Pasta" />
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          <button onClick={bookTable} className="book-table-button">
-            Book your table now
-          </button>
-          <a href="#">Browse our menu</a>
-        </article>
-        <article>
-          <h2>Book a table</h2>
-          <form id="bookingForm" onsubmit="return validateForm()">
-            <div>
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div>
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div>
-              <label for="guests">Number of Guests:</label>
-              <input type="number" id="guests" name="guests" min="1" required />
-            </div>
-            <div>
-              <label for="date">Date:</label>
-              <input type="date" id="date" name="date" required />
-            </div>
-            <div>
-              <label for="time">Time:</label>
-              <input type="time" id="time" name="time" required />
-            </div>
-            <button type="submit" class="book-table-button">
-              Book your table now
-            </button>
-          </form>
-        </article>
-        <article>
-          <h2>Opening hours</h2>
-          <div>
-            <img src="bruschetta" alt="Bruschetta" />
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          <p>
-            Mon-Fri: 12:00-22:00<br />
-            Sat: 12:00-0:00<br />
-            Sun: 12:00-21:00
-          </p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <div><img src="logo-yellow.png" alt="small logo" /></div>
-      <div>Copyright Little Lemon</div>
-    </footer>
 
-    <script>
-      function bookTable() {
-        // Add logic here to navigate to the booking form or perform other actions
-        console.log("Navigate to booking form");
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Little Lemon Website" />
+  <meta name="og:title" content="Little Lemon Restaurant" />
+  <meta name="og:description" content="This is the website of Little Lemon Restaurant" />
+  <meta name="og:image" content="logo-yellow.png" />
+  <title>Little Lemon Restaurant</title>
+  <link rel="stylesheet" href="App.css" />
+</head>
 
-      function validateForm() {
-        // Add custom validation logic here if needed
-        return true; // Return true to allow form submission; false to prevent it
-      }
-    </script>
-  </body>
+<body>
+  <header>
+    <img src="logo3.png" alt="Little Lemon Logo" />
+    <br />
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="book.html">Book</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <article>
+        <h1>Free cocktail with every main dish</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      </article>
+    </section>
+    <section>
+      <article class="article-summer-menu">
+        <h2>Our Summer Menu</h2>
+        <div>
+          <img src="pasta.jpg" alt="Pasta" />
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <a href="#">Browse our menu</a>
+      </article>
+      <article class="article-book-table">
+        <h2>Book a table</h2>
+        <form id="bookingForm" onsubmit="return validateForm()">
+          <label for="res-date">Choose date</label>
+          <input type="date" id="res-date" required />
+
+          <label for="res-time">Choose time</label>
+          <select id="res-time" required>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">1:00 PM</option>
+            <!-- Add more time options as needed -->
+          </select>
+
+          <label for="guests">Number of guests</label>
+          <input type="number" placeholder="1" min="1" max="10" id="guests" required />
+
+          <label for="occasion">Occasion</label>
+          <select id="occasion" required>
+            <option value="Birthday">Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+          </select>
+
+          <input type="submit" value="Make Your reservation" />
+        </form>
+      </article>
+      <article class="article-opening-hours">
+        <h2>Opening hours</h2>
+        <div>
+          <img src="Bruschetta.jpg" alt="Bruschetta" />
+        </div>
+        <p class="opening-hours">
+          Mon-Fri: 12:00-22:00<br />
+          Sat: 12:00-0:00<br />
+          Sun: 12:00-21:00
+        </p>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <div><img src="logo-yellow.png" alt="small logo" /></div>
+    <div>Copyright Little Lemon</div>
+  </footer>
+
+  <script>
+    function bookTable() {
+      console.log("Navigate to booking form");
+    }
+
+    function validateForm() {
+      return true; 
+    }
+  </script>
+</body>
+
 </html>

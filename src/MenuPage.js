@@ -11,7 +11,6 @@ const MenuPage = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
         <a href="#">Browse our menu</a>
       </article>
-
     </section>
   );
 };

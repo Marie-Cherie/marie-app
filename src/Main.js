@@ -20,14 +20,14 @@ const reducer = (state, action) => {
 };
 
 // Function to initialize the initial state for available times
-const initializeTimes = (date) => {
+const initializeTimes = () => {
   // For now, return the same available times regardless of the date
   return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 };
 
 function Main() {
   // State for available times using useReducer
-  const [availableTimes, dispatch] = useReducer(reducer, []);
+  const [availableTimes, dispatch] = useReducer(reducer, initializeTimes());
   const navigate = useNavigate();
 
   // Function to submit the form and navigate to the confirmed booking page
@@ -49,6 +49,11 @@ function Main() {
     }
   };
 
+  // Function to update the available times based on the selected date
+  const updateTimes = (date) => {
+    dispatch({ type: 'UPDATE_TIMES', date });
+  };
+
   return (
     <main>
       <Routes>
@@ -61,6 +66,7 @@ function Main() {
               availableTimes={availableTimes}
               dispatch={dispatch}
               submitForm={submitForm}
+              updateTimes={updateTimes} // Pass the updateTimes function as a prop
               fetchAPI={fetchAPI} // Pass the fetchAPI function as a prop
             />
           }
